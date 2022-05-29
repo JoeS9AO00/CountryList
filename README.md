@@ -1,3 +1,13 @@
+# Countrylist
+
+This is a React Application made to list countries from restcountries.com.
+
+The countries display the country's flag, name, population, capital, currencies and official languages.
+
+The countrylist is filterable by a country's name, capital, currency and official languages.
+All of the list's text based columns are also filterable in either ascending or descending order.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -6,3 +6,7 @@ export interface Country {
   currencies: { [key: string]: { name: string } };
   languages: { [key: string]: string };
 }
+
+export interface StyledProps {
+  primary: boolean;
+}

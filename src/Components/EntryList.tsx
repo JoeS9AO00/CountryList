@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Entry } from "./Entry";
-import { Country } from "../Types";
+import { Country, StyledProps } from "../Types";
 import { ChangeEvent, useState } from "react";
 
 interface Props {
@@ -174,14 +174,20 @@ export const EntryList = (props: Props) => {
               value={nameFilterWord}
               onChange={handleInputChange}
             />
-            <FilterIcon onClick={() => handleFilterButtonClick("name")}>
+            <FilterIcon
+              primary={activeFilter === "name"}
+              onClick={() => handleFilterButtonClick("name")}
+            >
               {activeFilter === "name" && ascOrDesc === 1 ? "A-Z" : "Z-A"}
             </FilterIcon>
           </TitleCell3>
           <PopCell>
             <ColTitle>Population</ColTitle>
 
-            <FilterIcon onClick={() => handleFilterButtonClick("population")}>
+            <FilterIcon
+              primary={activeFilter === "population"}
+              onClick={() => handleFilterButtonClick("population")}
+            >
               {activeFilter === "population" && ascOrDesc === 1 ? "0-9" : "9-0"}
             </FilterIcon>
           </PopCell>
@@ -195,7 +201,10 @@ export const EntryList = (props: Props) => {
               onChange={handleInputChange}
             />
 
-            <FilterIcon onClick={() => handleFilterButtonClick("capital")}>
+            <FilterIcon
+              primary={activeFilter === "capital"}
+              onClick={() => handleFilterButtonClick("capital")}
+            >
               {activeFilter === "capital" && ascOrDesc === 1 ? "A-Z" : "Z-A"}
             </FilterIcon>
           </StyledCell>
@@ -209,7 +218,10 @@ export const EntryList = (props: Props) => {
               onChange={handleInputChange}
             />
 
-            <FilterIcon onClick={() => handleFilterButtonClick("currency")}>
+            <FilterIcon
+              primary={activeFilter === "currency"}
+              onClick={() => handleFilterButtonClick("currency")}
+            >
               {activeFilter === "currency" && ascOrDesc === 1 ? "A-Z" : "Z-A"}
             </FilterIcon>
           </TitleCell3>
@@ -222,7 +234,10 @@ export const EntryList = (props: Props) => {
               value={languageFilterWord}
               onChange={handleInputChange}
             />
-            <FilterIcon onClick={() => handleFilterButtonClick("language")}>
+            <FilterIcon
+              primary={activeFilter === "language"}
+              onClick={() => handleFilterButtonClick("language")}
+            >
               {activeFilter === "language" && ascOrDesc === 1 ? "A-Z" : "Z-A"}
             </FilterIcon>
           </LangCell>
@@ -240,10 +255,10 @@ const FilterInput = styled.input`
   margin: 5px 1vw;
 `;
 
-const FilterIcon = styled.div`
+const FilterIcon = styled.div<StyledProps>`
   text-align: center;
   display: inline;
-  background-color: lightgray;
+  background-color: ${(props) => (props.primary ? "gray" : "lightgray")};
   padding: 0 3px;
   cursor: pointer;
   border-radius: 3px;
